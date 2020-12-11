@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
-import MovieIcon from '@material-ui/icons/Movie';
+import {withRouter} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,7 +61,7 @@ const Navbar = styled.nav`
   align-items: center;
   justify-content: space-between;
   float: left;
-  margin-bottom:2rem;
+  position:fixed;
 `;
 
 
@@ -69,15 +69,18 @@ const Navigation = (props) => {
   const classes = useStyles();
   const [Term, setTerm] = useState("");
   const onFormSubmit = (e) => {
+    
     e.preventDefault()
+    props.history.push(`/`);
     props.onSubmit(Term);
     console.log(Term);
+
   }
   return (
     <div>
       <Navbar>
       <div>
-        <MovieIcon style={{fontSize:"3rem"}} />
+      <h2 style={{padding:".5rem 0",textTransform:"uppercase"}}>🎬 Movie Library</h2>
       </div>
         <form onSubmit={onFormSubmit}>
           <div className={classes.search}>
