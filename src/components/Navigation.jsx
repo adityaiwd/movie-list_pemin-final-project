@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import styled from "styled-components";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import InputBase from "@material-ui/core/InputBase";
@@ -65,15 +65,21 @@ const Navbar = styled.nav`
 `;
 
 
-const Navigation = () => {
+const Navigation = (props) => {
   const classes = useStyles();
+  const [Term, setTerm] = useState("");
+  const onFormSubmit = (e) => {
+    e.preventDefault()
+    props.onSubmit(Term);
+    console.log(Term);
+  }
   return (
     <div>
       <Navbar>
       <div>
         <MovieIcon style={{fontSize:"3rem"}} />
       </div>
-        <form>
+        <form onSubmit={onFormSubmit}>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -84,7 +90,9 @@ const Navigation = () => {
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
+              value={Term}
               inputProps={{ "aria-label": "search" }}
+              onChange={(e) => setTerm(e.target.value)}
             />
           </div>
         </form>
