@@ -11,9 +11,7 @@ const App = () => {
       <div>
         <GlobalStyle />
         <Switch>
-          <Route path="/movie">
-            <Movie />
-          </Route>
+          <Route path="/movie/:id" component={Movie} />
           <Route path="/search" component={Search} />
           <Route path="/">
             <Discover />

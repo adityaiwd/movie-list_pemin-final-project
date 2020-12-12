@@ -13,7 +13,6 @@ const MovieList = (props) => {
       const res = await moviedb.get(`/discover/movie`, {
         params: {},
       });
-      console.log(res.data.results);
       setListOfImage(res.data.results);
       setLoading(false);
     };
@@ -24,17 +23,17 @@ const MovieList = (props) => {
     <div>
       <div>
         <h1 style={{ fontWeight: "300", textTransform: "uppercase" }}>
-          {!props.searchRes ? "POPULAR" : props.searchRes}
+          {!props.searchRes ? "POPULAR" : (props.searchRes === "Recommended" ? "Recommended" : props.searchRes)}
         </h1>
         <h4 style={{ textTransform: "uppercase" }}>
-          {!props.searchRes ? "MOVIES" : "Search Results"}
+          {!props.searchRes || (props.searchRes === "Recommended")  ? "MOVIES" : "Search Results"}
         </h4>
       </div>
-      <div style={{ marginTop: "2rem",position:"relative" }} class="ui stackable four column grid">
+      <div style={{ marginTop: "2rem",position:"relative" }} className="ui stackable four column grid">
         {!Loading ? (
           (props.searchRes ? props.searchedMovie : listOfImage).map((image) => (
-            <div className="column">
-              <Poster
+            <div className="column" key={image.id}>
+              <Poster                
                 poster={image.poster_path}
                 id={image.id}
                 title={image.title}

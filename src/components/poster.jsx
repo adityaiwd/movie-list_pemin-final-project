@@ -5,17 +5,18 @@ import { Link } from "react-router-dom";
 
 const PosterWrapper = styled.div`
   text-align: center;
-  transition: all 0.3s;
+  transition: all 0.4s;
   overflow: hidden;
   &:hover {
     transform: translateY(-1rem);
+    overflow: hidden;
   }
 `;
 
 const Poster = (props) => {
   return (
     <PosterWrapper>
-      <Link to="/movie">
+      <Link to={"/movie/" + props.id}>
         <img
           src={
             props.poster
@@ -25,7 +26,9 @@ const Poster = (props) => {
           alt={props.id}
           style={{ height: 300, objectFit: "cover", borderRadius: 5 }}
         />
-        <h4 style={{ margin: ".5rem 0", fontWeight: "400", color:"black" }}>{props.title}</h4>
+        <h4 style={{ margin: ".5rem 0", fontWeight: "400", color: "black" }}>
+          {props.title}
+        </h4>
         <Rating
           defaultValue={(props.rate / 10) * 5}
           max={5}
