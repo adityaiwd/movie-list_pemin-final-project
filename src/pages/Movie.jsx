@@ -17,6 +17,7 @@ const Movie = () => {
     synopsis: "",
   });
   const [Recommendation, setRecommendation] = useState([]);
+  const [Loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   let { id } = useParams();
   useEffect(() => {
@@ -40,6 +41,7 @@ const Movie = () => {
         params: {},
       });
       setRecommendation(res.data.results);
+      setLoading(false);
     };
     fetchMovie();
     fetchRecommendation();
@@ -57,7 +59,7 @@ const Movie = () => {
           genres={MovieData.genres}
           synopsis={MovieData.synopsis}
         />
-        <MovieList searchedMovie={Recommendation} searchRes="Recommended" />
+        <MovieList listOfMovies={Recommendation} searchRes="Recommended" Loading={Loading}/>
       </Container>
       <Footer />
     </div>
