@@ -1,5 +1,5 @@
 import React from "react";
-import Poster from "../components/poster";
+import Poster from "../components/Poster";
 import Skeleton from "@material-ui/lab/Skeleton";
 
 const MovieList = (props) => {

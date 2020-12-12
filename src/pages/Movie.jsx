@@ -17,13 +17,17 @@ const Movie = () => {
     synopsis: "",
   });
   const [Recommendation, setRecommendation] = useState([]);
-  const [Loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [Loading, setLoading] = useState(false);
   let { id } = useParams();
+  // const recArray = JSON.stringify(Recommendation);
   useEffect(() => {
-    setSearchTerm(id ? id : "");
     const fetchMovie = async () => {
-      const res = await moviedb.get(`/movie/${searchTerm}`, {
+      setLoading(true);
+      window.scrollTo(0, 0);
+      const res = await moviedb.get(`/movie/${id}`, {
+        params: {},
+      });
+      const resRec = await moviedb.get(`/movie/${id}/recommendations`, {
         params: {},
       });
       setMovieData({
@@ -34,18 +38,13 @@ const Movie = () => {
         genres: res.data.genres,
         synopsis: res.data.overview,
       });
-      console.log(res.data)
-    };
-    const fetchRecommendation = async () => {
-      const res = await moviedb.get(`/movie/${searchTerm}/recommendations`, {
-        params: {},
-      });
-      setRecommendation(res.data.results);
+      setRecommendation(resRec.data.results);
       setLoading(false);
+      console.log(res.data)
+      // (Recommendation && MovieData ? setLoading(false):setLoading(true));
     };
     fetchMovie();
-    fetchRecommendation();
-  }, [searchTerm, id]);
+  }, [id]);
 
   return (
     <div style={{position:"relative"}}>
@@ -58,6 +57,7 @@ const Movie = () => {
           rate={MovieData.rate}
           genres={MovieData.genres}
           synopsis={MovieData.synopsis}
+          Loading={Loading}
         />
         <MovieList listOfMovies={Recommendation} searchRes="Recommended" Loading={Loading}/>
       </Container>

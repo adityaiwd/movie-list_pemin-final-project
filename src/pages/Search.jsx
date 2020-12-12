@@ -13,14 +13,16 @@ const Search = ({ location }) => {
     const q = params.get("q");
     setSearchTerm(q ? q : "");
     const fetchImage = async () => {
+      setLoading(true);
+      window.scrollTo(0, 0);
       const res = await moviedb.get(`/search/movie`, {
-        params: { query: searchTerm },
+        params: { query: q },
       });
       setMovies(res.data.results);
       setLoading(false);
     };
     fetchImage();
-  }, [searchTerm, location]);
+  }, [location.search]);
 
   return (
     <div style={{ position: "relative" }}>
