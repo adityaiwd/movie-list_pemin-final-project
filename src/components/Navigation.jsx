@@ -1,9 +1,9 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
-import {withRouter} from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,27 +61,28 @@ const Navbar = styled.nav`
   align-items: center;
   justify-content: space-between;
   float: left;
-  position:fixed;
+  position: fixed;
 `;
 
-
 const Navigation = (props) => {
+  let history = useHistory();
   const classes = useStyles();
   const [Term, setTerm] = useState("");
   const onFormSubmit = (e) => {
-    
-    e.preventDefault()
-    props.history.push(`/`);
-    props.onSubmit(Term);
-    console.log(Term);
-
-  }
+    e.preventDefault();
+    history.push("/search?q=" + Term);
+    setTerm("")
+  };
   return (
     <div>
       <Navbar>
-      <div>
-      <h2 style={{padding:".5rem 0",textTransform:"uppercase"}}>🎬 Movie Library</h2>
-      </div>
+        <div>
+          <Link to="/" style={{textDecoration:"none", color:"black"}}>
+            <h2 style={{ padding: ".5rem 0", textTransform: "uppercase" }}>
+              🎬 Movie Library
+            </h2>
+          </Link>
+        </div>
         <form onSubmit={onFormSubmit}>
           <div className={classes.search}>
             <div className={classes.searchIcon}>

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const PosterWrapper = styled.div`
   text-align: center;
   transition: all 0.3s;
+  overflow: hidden;
   &:hover {
     transform: translateY(-1rem);
   }
