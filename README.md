@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+Projek Akhir Pemrograman Integratif, Kelompok 5, Kelas TI-A  
+Anggota Kelompok:  
+- 185150700111010 - Aditya Dwi Wicaksono
+- 185150701111007 - Oceandra Audrey
+- 185150707111003 - Fauzidan Iqbal Ghiffari
+- 185150707111007 - Fathin Al Ghifari
+- 185150707111008 - Azzamuddien Hanifa
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 🎬 Movie List
 
-## Available Scripts
+Movie List is a simple web app that shows a list of Movies and The Details of a Specific Movie, this project was made with `create-react-app` and some
+other dependencies such as: 
 
-In the project directory, you can run:
+- [Material-UI](https://material-ui.com/), for the UI Component Library
+- [StyledComponents](https://styled-components.com/), to directly style a component
+- [React-Router](https://reactrouter.com/), to easily navigate through the site
+- [Axios](https://www.npmjs.com/package/axios), to make http request
 
-### `yarn start`
+## How To Use
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Step 1
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- 👯 Clone this repo to your local machine using 
+  ```shell
+  git clone https://github.com/adityaiwd/movie-list_pemin-final-project.git
+  ```
+  after cloning this repo, don't forget to install all of the dependencies using
+  ```shell
+  npm install
+  ```
 
-### `yarn test`
+### Step 2
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Rename the `.env.sample` file to `.env`
 
-### `yarn build`
+### Step 3
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Inside the `.env` you should pass in your [theMovieDB API Key](https://www.themoviedb.org/settings/api) to the REACT_APP_API.
+```properties
+REACT_APP_API=<your api key>
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Step 4
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- run it on your local server using
+```shell
+   npm start
+```
