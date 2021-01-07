@@ -12,10 +12,10 @@ const DetailWrapper = styled.div`
 const MoviePoster = styled.img`
   height: 50rem;
   border-radius: 0.5rem;
-  text-align:center;
 `;
 const PosterSkeleton = styled(Skeleton)`
   height: 50rem;
+  width: 40rem;
   border-radius: 0.5rem;
 `;
 
@@ -38,7 +38,7 @@ const MovieTitle = styled.h1`
 const MovieDetail = (props) => {
   return (
     <DetailWrapper>
-      <Grid container style={{display:"flex", justifyContent:"center"}}>
+      <Grid container style={{display:"flex", justifyContent:"center",width:"100%"}}>
         <Grid
           item
           md={6}
@@ -73,7 +73,7 @@ const MovieDetail = (props) => {
                 readOnly
                 style={{ marginRight: 20 }}
               />
-              <p style={{ fontWeight: 700 }}>{props.rate}</p>
+              <p style={{ fontWeight: 700,fontSize:"1.4rem" }}>{props.rate}</p>
             </div>
           ) : (
             <Skeleton variant="rect" style={{ borderRadius: 5 }} />
