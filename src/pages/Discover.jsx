@@ -11,7 +11,7 @@ const Discover = () => {
   useEffect(() => {
     const fetchImage = async () => {
       const res = await moviedb.get(`/discover/movie`, {
-        params: {},
+        params: { },
       });
       setListOfImage(res.data.results);
       setLoading(false);
@@ -21,9 +21,7 @@ const Discover = () => {
   return (
     <div style={{ position: "relative" }}>
       <Navigation />
-      <div style={{ padding: "7rem 20rem" }}>
         <MovieList listOfMovies={listOfImage} Loading={Loading} />
-      </div>
       <Footer />
     </div>
   );

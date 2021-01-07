@@ -51,18 +51,31 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Navbar = styled.nav`
-  width: 100%;
-  background-color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-  /* height: 5rem; */
-  padding: 1rem 12%;
-  z-index: 100;
+  
+  width: 80%;
+  
   display: flex;
   align-items: center;
   justify-content: space-between;
-  float: left;
-  position: fixed;
+  margin:0 auto;
 `;
+
+const NavbarWrapper = styled.div`
+  min-width: 100vw;
+  box-shadow: 0 .2rem .4rem 0 rgba(0, 0, 0, 0.1);
+  padding:1.5rem 0;
+  position: fixed;
+  z-index:20;
+  
+
+  background-color: #fff;
+`
+
+const NavTitle = styled.h2`
+  padding: .5rem 0;
+  text-transform: uppercase;
+  font-size:1.8rem;
+`
 
 const Navigation = (props) => {
   let history = useHistory();
@@ -74,13 +87,13 @@ const Navigation = (props) => {
     setTerm("")
   };
   return (
-    <div>
+    <NavbarWrapper>
       <Navbar>
         <div>
           <Link to="/" style={{textDecoration:"none", color:"black"}}>
-            <h2 style={{ padding: ".5rem 0", textTransform: "uppercase" }}>
+            <NavTitle style={{ padding: ".5rem 0", textTransform: "uppercase" }}>
               🎬 Movie Library
-            </h2>
+            </NavTitle>
           </Link>
         </div>
         <form onSubmit={onFormSubmit}>
@@ -101,7 +114,7 @@ const Navigation = (props) => {
           </div>
         </form>
       </Navbar>
-    </div>
+      </NavbarWrapper>
   );
 };
 

@@ -19,6 +19,7 @@ const Search = ({ location }) => {
         params: { query: q },
       });
       setMovies(res.data.results);
+      console.log(res.data.results);
       setLoading(false);
     };
     fetchImage();
@@ -27,13 +28,11 @@ const Search = ({ location }) => {
   return (
     <div style={{ position: "relative" }}>
       <Navigation />
-      <div style={{ padding: "7rem 20rem" }}>
         <MovieList
           listOfMovies={Movies}
           searchRes={searchTerm}
           Loading={Loading}
         />
-      </div>
       <Footer />
     </div>
   );

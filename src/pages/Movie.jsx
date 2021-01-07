@@ -19,7 +19,6 @@ const Movie = () => {
   const [Recommendation, setRecommendation] = useState([]);
   const [Loading, setLoading] = useState(false);
   let { id } = useParams();
-  // const recArray = JSON.stringify(Recommendation);
   useEffect(() => {
     const fetchMovie = async () => {
       setLoading(true);
@@ -40,16 +39,14 @@ const Movie = () => {
       });
       setRecommendation(resRec.data.results);
       setLoading(false);
-      console.log(res.data)
-      // (Recommendation && MovieData ? setLoading(false):setLoading(true));
     };
     fetchMovie();
   }, [id]);
 
   return (
-    <div style={{position:"relative"}}>
+    <div style={{position:"relative",minHeight:"100vh"}}>
       <Navigation />
-      <Container maxWidth="lg" style={{ paddingTop: "5rem", paddingBottom:"10rem" }}>
+      <Container maxWidth="lg" style={{ paddingTop: "5rem" }}>
         <MovieDetail
           poster={MovieData.poster}
           title={MovieData.title}
@@ -59,8 +56,8 @@ const Movie = () => {
           synopsis={MovieData.synopsis}
           Loading={Loading}
         />
-        <MovieList listOfMovies={Recommendation} searchRes="Recommended" Loading={Loading}/>
       </Container>
+        <MovieList listOfMovies={Recommendation} searchRes="Recommended" Loading={Loading}/>
       <Footer />
     </div>
   );
