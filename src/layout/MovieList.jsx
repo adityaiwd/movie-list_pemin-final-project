@@ -1,5 +1,5 @@
 import React from "react";
-import Poster from "../components/Poster";
+import Poster from "./Poster";
 import Skeleton from "@material-ui/lab/Skeleton";
 import Grid from '@material-ui/core/Grid';
 import styled from "styled-components";
